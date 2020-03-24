@@ -1,8 +1,8 @@
 # Music Visualiser Project
 
-Name:
+Name: Daniel Foley
 
-Student Number: 
+Student Number: C17335606
 
 ## Instructions
 - Fork this repository and use it a starter project for your assignment
