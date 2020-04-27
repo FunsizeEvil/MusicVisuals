@@ -32,7 +32,7 @@ public class RotatingAudioBands extends Visual {
         setFrameSize(256);
 
         startMinim();
-        loadAudio("BICEP-GLUE.mp3");
+        loadAudio("Glue-Bicep.mp3");
         getAudioPlayer().play();
         //startListening(); 
         
