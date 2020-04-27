@@ -44,7 +44,7 @@ public class CubeVisual1 extends Visual
         rotateX(angle);
         rotateZ(angle);       
         float boxSize = 50 + (200 * getSmoothedAmplitude()); 
-        sphere(boxSize);   
+        box(boxSize);   
         popMatrix();
         angle += 0.01f;
     }
