@@ -17,7 +17,7 @@ public class RotatingAudioBands extends Visual {
     {
         if (key == ' ')
         {
-            getAudioPlayer().cue(0);
+            getAudioPlayer().cue(30);
             getAudioPlayer().play();
             
         }
