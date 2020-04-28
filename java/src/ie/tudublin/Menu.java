@@ -14,8 +14,8 @@ public class Menu extends PApplet
     float border;
     float left;
 
-    float w;
-    float h;
+    float boxW;
+    float boxH;
     float headerSpace;
     public void settings()
     {
@@ -25,8 +25,8 @@ public class Menu extends PApplet
         border = width * 0.1f;
         left = width * 0.05f;
 
-        w = width * 0.3f;
-        h = height * 0.1f;
+        boxW = width * 0.3f;
+        boxH = height * 0.1f;
         headerSpace = height * 0.3f;
         
         //fullScreen(P3D, SPAN);
@@ -34,7 +34,7 @@ public class Menu extends PApplet
 
     public void loadToTracks()
     {
-        tracks.add("BICEP-GLUE.mp3");
+        tracks.add("Glue-Bicep.mp3");
         tracks.add("heroplanet.mp3");
     }
 
@@ -50,11 +50,11 @@ public class Menu extends PApplet
     void displayMenu()
     {
 
-        String header = "Music \nVisualiser";
+        String header = "Music Visualiser";
         pushMatrix();
         textSize(50);
         textAlign(CENTER);
-        text(header,  width / 2, h );
+        text(header,  width / 2, boxH );
         popMatrix();
 
         pushMatrix();
@@ -63,22 +63,45 @@ public class Menu extends PApplet
             float y = map(i, 0, tracks.size(), headerSpace - border, (height *0.8f) - border);
 
             fill(255);
-            rect((width /2) - w / 2 , y, w, h);
+            rect((width /2) - boxW/ 2 , y, boxW, boxH);
             fill(0);
             textSize(25);
             textAlign(LEFT, CENTER);
             // Organise the name of the file to be displayed by removing .mp3 and replacing "-" with " by "
             //
             String TName = tracks.get(i);
-            String newTName = TName.replace("-", " by ");
+            String newTName = TName.replace("-", " \nby ");
             newTName = newTName.substring(0, newTName.length() - 4);
             //print the song name in the boxes
             //
-            text(newTName, (width /2) - w / 3, y + (h / 2));
+            text(newTName, (width /2) - boxW / 3, y + (boxH / 2));
         }
         popMatrix();
 
 
+    }
+
+    //Checks for mouse press and if the user clicked on a box to choose a track
+    //
+    public void mousePressed()
+    {
+        System.out.println("mouse Pressed");
+        for(int i = 0 ; i < tracks.size() ; i ++)
+        {
+            //maps the Y coordinate 
+            //
+            float y = map(i, 0, tracks.size(),  headerSpace - border, (height *0.8f) - border);
+            //checks if the mouse x is within the width of a box anf the height of a box
+            //
+            if (mouseX > (width /2) - boxW/ 2 && mouseX < (width /2) + boxW/ 2
+                && mouseY > y  && mouseY < y + boxH                 
+                )
+                {
+                    System.out.println("now playing " + tracks.get(i));
+                    break;
+                }
+
+        }
     }
 
     public void draw()
