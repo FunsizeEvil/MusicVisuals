@@ -8,7 +8,7 @@ import java.lang.String;
 
 
 
-public class Menu extends PApplet
+public class Menu extends PApplet 
 {
     ArrayList<String> tracks = new ArrayList<String>();
     float border;
@@ -83,8 +83,9 @@ public class Menu extends PApplet
 
     //Checks for mouse press and if the user clicked on a box to choose a track
     //
-    public void mousePressed()
+    public void mousePressed() 
     {
+        
         System.out.println("mouse Pressed");
         for(int i = 0 ; i < tracks.size() ; i ++)
         {
@@ -98,6 +99,23 @@ public class Menu extends PApplet
                 )
                 {
                     System.out.println("now playing " + tracks.get(i));
+                    String[] a = {"AroundTheWorld"};
+                    //open a new window for the sketch
+                    processing.core.PApplet.runSketch( a, new aroundTheWorld());
+
+                    // try catch to wait and then calll another sketch
+                    //
+                    try{
+
+                        Thread.sleep(5000);
+                    }
+                    catch(InterruptedException ex){
+                        Thread.currentThread().interrupt();
+                    }
+
+                    System.out.println("awoken from sleep");
+                    String[] b = {"CubeVisual"};
+                    processing.core.PApplet.runSketch(b, new CubeVisual());
                     break;
                 }
 
