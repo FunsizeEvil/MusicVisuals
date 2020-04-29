@@ -77,7 +77,7 @@ public class aroundTheWorld extends Visual {
         float[] bands = getSmoothedBands();
         for(int i = 0 ; i < 1 ; i ++)
         {
-            for(int j = 0 ; j <  ; j ++)
+            for(int j = 0 ; j < 1 ; j ++)
             {
                 float theta = map(i, 0, bands.length, 0, TWO_PI);
     
