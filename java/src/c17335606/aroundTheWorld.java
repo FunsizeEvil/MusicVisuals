@@ -12,7 +12,7 @@ package c17335606;
 import ie.tudublin.Visual;
 import ie.tudublin.VisualException;
 
-public class aroundTheWorld extends Visual {
+public class AroundTheWorld extends Visual {
 
 
     public void settings()
@@ -41,7 +41,7 @@ public class aroundTheWorld extends Visual {
         setFrameSize(256);
 
         startMinim();
-        loadAudio("heroplanet.mp3");
+        loadAudio("Glue-Bicep.mp3");
         getAudioPlayer().play();
         
     }

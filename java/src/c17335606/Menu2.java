@@ -103,7 +103,7 @@ public class Menu2 extends PApplet
                     colorMode(HSB);
                     noCursor();
                     
-                    processing.core.PApplet.runSketch( a, new aroundTheWorld());
+                    processing.core.PApplet.runSketch( a, new AroundTheWorld());
 
                     // try catch to wait and then calll another sketch
                     //
