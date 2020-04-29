@@ -2,6 +2,10 @@
 // Daniel Foley
 // c17335606
 // https://github.com/FunsizeEvil/MusicVisuals
+// the visual is based off the solar system and inspired partly by
+// Daft Punks "around the world". It Depicts 6 planets rotating around 
+// the sun. Each planet grows with the magnitude of the band and all
+// rotate around the sun in relation to the amplitude of the music.
 
 package c17335606;
 
@@ -37,15 +41,16 @@ public class aroundTheWorld extends Visual {
         setFrameSize(256);
 
         startMinim();
-        loadAudio("Glue-Bicep.mp3");
+        loadAudio("heroplanet.mp3");
         getAudioPlayer().play();
-        //startListening(); 
         
     }
+    // Create an array for each planets radius from the centre point
+    // and one for the offset in rotation. Rotatino is done randomly
+    // so as to give a more natural solar system look.
+    float planetRadius[] = {0, 100, 200, 340, 380, 420, 500, 550, 200};
+    float planetRot[] = {0, 100, 400, -1500, 100, -300, 200, 200};
 
-    float radius = 200;
-    float planetRadius[] = {50, 75, 100, 150, 200, 300, 400};
-    float planetRot[] = {0,360, 100, 150, 340, 90, 220};
 
     float smoothedBoxSize = 0;
 
@@ -64,12 +69,9 @@ public class aroundTheWorld extends Visual {
         }
         calculateFrequencyBands();
         background(0);
-        noFill();
         stroke(255);
-        lights();
         stroke(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
-        camera(0, -500, 3000, 0, 0, 0, 0, 1, 0);
-        //translate(0, 0, -250);
+        camera(0, -3000, 100, 0, 0, 0, 0, 1, 0);
 
         rot += getAmplitude() / 8.0f;
 
@@ -77,94 +79,27 @@ public class aroundTheWorld extends Visual {
         float[] bands = getSmoothedBands();
         for(int i = 0 ; i < 1 ; i ++)
         {
-            for(int j = 0 ; j < 1 ; j ++)
+            for(int j = 0 ; j < bands.length ; j ++)
             {
-                float theta = map(i, 0, bands.length, 0, TWO_PI);
+                float theta = map(i, 0, bands.length, j, TWO_PI);
     
-                stroke(map(i, 0, bands.length, 0, 255), 255, 255);
-                // float x = sin(theta) * radius;
-                // float z = cos(theta) * radius;
-                float x = sin(theta) * planetRadius[0];
-                float z = cos(theta) * planetRadius[0];
-                float h = bands[0];
-                pushMatrix();
-                translate((x + planetRot[0]), - h / 2 , z); 
-                rotateY(theta + 100);
-                sphere(h);
-                popMatrix();
-                
-            }
-
-            for(int j = 0 ; j < 1 ; j ++)
-            {
-                float theta = map(i, 0, bands.length, 0, TWO_PI);
-    
-                stroke(map(i, 0, bands.length, 0, 255), 255, 255);
-                // float x = sin(theta) * radius;
-                // float z = cos(theta) * radius;
-                float x = sin(theta) * planetRadius[1];
-                float z = cos(theta) * planetRadius[1];
-                float h = bands[1];
-                pushMatrix();
-                translate((x + planetRot[1]), - h / 2 , z);
-                rotateY(theta);
-                sphere(h);
-                popMatrix();
-                
-            }
-
-            for(int j = 0 ; j < 1 ; j ++)
-            {
-                float theta = map(i, 0, bands.length, 0, TWO_PI);
-    
-                stroke(map(i, 0, bands.length, 0, 255), 255, 255);
-                // float x = sin(theta) * radius;
-                // float z = cos(theta) * radius;
-                float x = sin(theta) * planetRadius[2];
-                float z = cos(theta) * planetRadius[2];
-                float h = bands[2];
-                pushMatrix();
-                translate((x + planetRot[2]), - h / 2 , z);
-                rotateY(theta);
-                sphere(h);
-                popMatrix();
-                
-            }
-            for(int j = 0 ; j < 1 ; j ++)
-            {
-                float theta = map(i, 0, bands.length, 0, TWO_PI);
-    
-                stroke(map(i, 0, bands.length, 0, 255), 255, 255);
-                // float x = sin(theta) * radius;
-                // float z = cos(theta) * radius;
-                float x = sin(theta) * planetRadius[3];
-                float z = cos(theta) * planetRadius[3];
+                stroke(map(j, 0, bands.length, 0, 255), 255, 255);
+                float x = sin(theta) * planetRadius[j];
+                float z = cos(theta) * planetRadius[j];
                 float h = bands[j];
                 pushMatrix();
-                translate((x + planetRot[3]), - h / 2 , z);
-                rotateY(theta);
-                sphere(h);
-                popMatrix();
-                
+                translate((x + planetRot[j]) , - h  / 2 , z); 
+                rotateY(theta + planetRot[j]);
+                // Allows the sun to be larger than the other planets
+                //
+                if(j == 0){
+                    sphere(h);
+                }else{
+                    sphere(h / 3);
+                }
+                popMatrix();            
             }
-            
-
-            // float theta = map(i, 0, bands.length, 0, TWO_PI);
-
-            // stroke(map(i, 0, bands.length, 0, 255), 255, 255);
-            // float x = sin(theta) * radius;
-            // float z = cos(theta) * radius;
-            // // float x = sin(theta) * planetRadius[i];
-            // // float z = cos(theta) * planetRadius[i];
-            // float h = bands[i];
-            // pushMatrix();
-            // translate(x, - h / 2 , z);
-            // rotateY(theta);
-            // sphere(h);
-            // popMatrix();
-            
         }
-
     }
     float angle = 0;
 
