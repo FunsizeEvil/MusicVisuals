@@ -13,7 +13,7 @@ public class Square extends TwodObject
 {
     private float extent;
 
-    public Square(SHAPE shape, float x, float y, float speed, float extent)
+    public Square(SHAPE shape, float x, float y, float speed, float rotation, float extent)
     {
         super(shape, x, y, 0, speed);
         this.extent = extent;
@@ -37,6 +37,13 @@ public class Square extends TwodObject
 
     public void update()
     {
+        movement.x = (float) Math.sin(rotation);
+        movement.y = (float) Math.cos(rotation);
+        
+        rotation += getAmplitude() / 8.0f;
 
+        rotateY(rotation);
+
+        pos.x = movement.x;
     }
 }

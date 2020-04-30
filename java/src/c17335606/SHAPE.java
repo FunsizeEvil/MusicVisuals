@@ -31,15 +31,33 @@ public class SHAPE extends Visual
 
     public void setup()
     {
-        square = new Square(this, width /2, height /2, 0, 50);
+        //set the parameters
+        square = new Square(this, 100, 100, 0, 0, 50);
         twodObjects.add(square);
+
+        colorMode(HSB);
+        //noCursor();
+        
+        setFrameSize(256);
+
+        startMinim();
+        loadAudio("heroplanet.mp3");
+        getAudioPlayer().play();
 
     }
 
     public void draw()
     {
         pushMatrix();
-        background(255);
+        calculateAverageAmplitude();
+        calculateFrequencyBands();
+        background(0);
+        stroke(255);
+
+        // twodObjects.setRotation() += getAmplitude() / 8.0f;
+
+        // rotateY(rotation);
+        float[] bands = getSmoothedBands();
 
         stroke(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
         fill(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255,255);
@@ -53,26 +71,10 @@ public class SHAPE extends Visual
         for( int i = twodObjects.size() -1; i >= 0; i--){
             TwodObject b = twodObjects.get(i);
             b.render();
-            b.update();
+            //b.update();
         }
     }
 }
 
 
-
-
-// public abstract class TwoDObject
-// {
-//     //private classes
-//     //
-//     protected PVector pos;
-//     protected PVector movement;
-//     protected float rotation;
-//     protected float speed;
-
-//     public TwoDObject(float x, float y, float rotation, float speed)
-//     {
-        
-//     }
-// }
 

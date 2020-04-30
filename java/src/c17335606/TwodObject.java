@@ -8,10 +8,11 @@
 // to use and also gives it PVector parametrs.
 package c17335606;
 
+import ie.tudublin.Visual;
 import processing.core.PVector;
 
 
-public abstract class TwodObject
+public abstract class TwodObject extends Visual
 {
     //private classes
     //
@@ -24,7 +25,7 @@ public abstract class TwodObject
     public TwodObject(SHAPE shape, float x, float y, float rotation, float speed)
     {
         this.shape = shape;
-        pos = new PVector(0, -1);
+        pos = new PVector(x, y);
         movement = new PVector(0, -1);
         this.rotation = rotation;
         this.speed = speed;
