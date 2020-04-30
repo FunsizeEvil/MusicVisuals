@@ -1,7 +1,7 @@
 package c17335606;
 
 import ie.tudublin.Visual;
-import javafx.scene.shape.Box;
+// import javafx.scene.shape.Box;
 
 public class CubeSlide extends Visual
 {
@@ -62,6 +62,11 @@ public class CubeSlide extends Visual
 
         pushMatrix();;
         translate(angle, 0);
+        for(int i = 0; i < 6; i++)
+        {   
+            
+            square(map(x,0,5,-100, 100), x + 50, 25);
+        }
         square(x, x + 50, 25);
         popMatrix();
 
