@@ -35,6 +35,7 @@ public class Menu2 extends PApplet
     {
         tracks.add("Glue-Bicep.mp3");
         tracks.add("heroplanet.mp3");
+        tracks.add("song");
     }
 
     public void keyPressed()
@@ -97,28 +98,52 @@ public class Menu2 extends PApplet
                 && mouseY > y  && mouseY < y + boxH                 
                 )
                 {
-                    System.out.println("now playing " + tracks.get(i));
-                    String[] a = {"AroundTheWorld"};
-                    //open a new window for the sketch
-                    colorMode(HSB);
-                    noCursor();
+                    String currentTrack = tracks.get(i);
+
+                    if(currentTrack == tracks.get(i)){
+                        System.out.println("now playing " + tracks.get(i));
+                        String[] a = {"AroundTheWorld"};
+                        //open a new window for the sketch
+                        colorMode(HSB);
+                        noCursor();
+                        
+                        processing.core.PApplet.runSketch( a, new AroundTheWorld());
+                        break;
+                    }else if(currentTrack == tracks.get(i)){
+                        System.out.println("now playing " + tracks.get(i));
+                        String[] a = {"CubeInSphere"};
+                        //open a new window for the sketch
+                        colorMode(HSB);
+                        noCursor();
+                            
+                        processing.core.PApplet.runSketch( a, new CubeInSphere());
+                        break;
+                    }
+                    // switch (currentTrack)
+                    // {
+                    //     case tracks.get(i):
+                    //         System.out.println("now playing " + tracks.get(i));
+                    //         String[] a = {"AroundTheWorld"};
+                    //         //open a new window for the sketch
+                    //         colorMode(HSB);
+                    //         noCursor();
+                            
+                    //         processing.core.PApplet.runSketch( a, new AroundTheWorld());
+                    //         break;
                     
-                    processing.core.PApplet.runSketch( a, new AroundTheWorld());
+                    //     case tracks.get(i):
+                    //         System.out.println("now playing " + tracks.get(i));
+                    //         String[] b = {"CubeInSphere"};
+                    //         //open a new window for the sketch
+                    //         colorMode(HSB);
+                    //         noCursor();
+                            
+                    //         processing.core.PApplet.runSketch( b, new CubeInSphere());
+                    //         break;
+                    
+                    // }
 
-                    // try catch to wait and then calll another sketch
-                    //
-                    try{
 
-                        Thread.sleep(5000);
-                    }
-                    catch(InterruptedException ex){
-                        Thread.currentThread().interrupt();
-                    }
-
-                    System.out.println("awoken from sleep");
-                    String[] b = {"CubeVisual"};
-                    processing.core.PApplet.runSketch(b, new CubeVisual());
-                    break;
                 }
 
         }

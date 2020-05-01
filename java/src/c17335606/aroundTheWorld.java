@@ -6,6 +6,9 @@
 // Daft Punks "around the world". It Depicts 6 planets rotating around 
 // the sun. Each planet grows with the magnitude of the band and all
 // rotate around the sun in relation to the amplitude of the music.
+// I specifically choose this song as for this visual as it suits
+// the idea of planets going around and aorund until the song ends,
+// then they like the son slowly fade away to nothing as the song ends.
 
 package c17335606;
 
@@ -22,16 +25,6 @@ public class AroundTheWorld extends Visual {
         //fullScreen(P3D, SPAN);
     }
 
-    public void keyPressed()
-    {
-        if (key == ' ')
-        {
-            getAudioPlayer().cue(0);
-            getAudioPlayer().play();
-            
-        }
- 
-    }
 
     public void setup()
     {
@@ -41,7 +34,7 @@ public class AroundTheWorld extends Visual {
         setFrameSize(256);
 
         startMinim();
-        loadAudio("heroplanet.mp3");
+        loadAudio("Glue-Bicep.mp3");
         getAudioPlayer().play();
         
     }
@@ -102,6 +95,6 @@ public class AroundTheWorld extends Visual {
             }
         }
     }
-    float angle = 0;
+    //float angle = 0;
 
 }
