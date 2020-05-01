@@ -9,7 +9,6 @@
 package c17335606;
 
 import ie.tudublin.Visual;
-import javafx.scene.shape.Box;
 
 public class CubeInSphere extends Visual
 {
