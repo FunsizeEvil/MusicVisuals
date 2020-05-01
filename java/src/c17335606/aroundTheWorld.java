@@ -41,15 +41,16 @@ public class AroundTheWorld extends Visual {
         setFrameSize(256);
 
         startMinim();
-        loadAudio("Glue-Bicep.mp3");
+        loadAudio("heroplanet.mp3");
         getAudioPlayer().play();
         
     }
     // Create an array for each planets radius from the centre point
     // and one for the offset in rotation. Rotatino is done randomly
     // so as to give a more natural solar system look.
-    float planetRadius[] = {0, 100, 200, 340, 380, 420, 500, 550, 200};
-    float planetRot[] = {0, 100, 400, -1500, 100, -300, 200, 200};
+    float planetRadius[] = {0, 300, 300, 300, 300, 300, 400, 350, 200};
+    float planetRot[] = {0, 100, 200, 300, 400, 500, 550, 600,650};
+    // float planetRot[] = {0, 100, 400, -1500, 100, -300, 200, 200};
 
 
     float smoothedBoxSize = 0;
@@ -71,7 +72,7 @@ public class AroundTheWorld extends Visual {
         background(0);
         stroke(255);
         stroke(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
-        camera(0, -3000, 100, 0, 0, 0, 0, 1, 0);
+        camera(0, -3000, 500, 0, 0, 0, 0, 10, 0);
 
         rot += getAmplitude() / 8.0f;
 
@@ -82,7 +83,7 @@ public class AroundTheWorld extends Visual {
             for(int j = 0 ; j < bands.length ; j ++)
             {
                 float theta = map(i, 0, bands.length, j, TWO_PI);
-    
+                rotateY(rot * (j * 0.1f));
                 stroke(map(j, 0, bands.length, 0, 255), 255, 255);
                 float x = sin(theta) * planetRadius[j];
                 float z = cos(theta) * planetRadius[j];
@@ -93,7 +94,7 @@ public class AroundTheWorld extends Visual {
                 // Allows the sun to be larger than the other planets
                 //
                 if(j == 0){
-                    sphere(h);
+                    sphere(h * 2);
                 }else{
                     sphere(h / 3);
                 }

@@ -48,6 +48,16 @@ public class SHAPE extends Visual
 
     public void draw()
     {
+
+        calculateAverageAmplitude();
+        // try
+        // {
+        //     calculateFFT();
+        // }
+        // catch(VisualException e)
+        // {
+        //     e.printStackTrace();
+        // }
         pushMatrix();
         calculateAverageAmplitude();
         calculateFrequencyBands();
@@ -71,7 +81,7 @@ public class SHAPE extends Visual
         for( int i = twodObjects.size() -1; i >= 0; i--){
             TwodObject b = twodObjects.get(i);
             b.render();
-            //b.update();
+            b.update();
         }
     }
 }

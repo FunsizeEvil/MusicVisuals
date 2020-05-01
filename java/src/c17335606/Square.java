@@ -3,7 +3,7 @@
 // c17335606
 // https://github.com/FunsizeEvil/MusicVisuals
 
-// Square.java exrtends TwodObject. java to give the parameters of the square]
+// Square.java exrtends TwodObject. java to give the parameters of the square
 // and the functionlity of rendering the sqaure and updating it.
 package c17335606;
 
@@ -39,7 +39,7 @@ public class Square extends TwodObject
     {
         movement.x = (float) Math.sin(rotation);
         movement.y = (float) Math.cos(rotation);
-        
+
         rotation += getAmplitude() / 8.0f;
 
         rotateY(rotation);
