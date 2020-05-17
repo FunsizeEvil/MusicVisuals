@@ -34,7 +34,7 @@ public class AroundTheWorld extends Visual {
         setFrameSize(256);
 
         startMinim();
-        loadAudio("Glue-Bicep.mp3");
+        loadAudio("AroundTheWorld-DaftPunk.mp3");
         getAudioPlayer().play();
         
     }
@@ -65,7 +65,7 @@ public class AroundTheWorld extends Visual {
         background(0);
         stroke(255);
         stroke(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
-        camera(0, -3000, 500, 0, 0, 0, 0, 10, 0);
+        camera(0, -2000, 500, 0, 0, 0, 0, 10, 0);
 
         rot += getAmplitude() / 8.0f;
 
@@ -89,7 +89,7 @@ public class AroundTheWorld extends Visual {
                 if(j == 0){
                     sphere(h * 2);
                 }else{
-                    sphere(h / 3);
+                    sphere(h );
                 }
                 popMatrix();            
             }

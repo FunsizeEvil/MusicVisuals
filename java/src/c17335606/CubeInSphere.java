@@ -28,7 +28,7 @@ public class CubeInSphere extends Visual
         setFrameSize(256);
 
         startMinim();
-        loadAudio("heroplanet.mp3");
+        loadAudio("Glue-Bicep.mp3");
         getAudioPlayer().cue(0);
         getAudioPlayer().play();
     }
@@ -84,7 +84,7 @@ public class CubeInSphere extends Visual
             y = 0;
             x += 300;
         }
-        angle += 0.01f;
+        angle += getSmoothedAmplitude();
     }
     float angle = 0;
 } 
