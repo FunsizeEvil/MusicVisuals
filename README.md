@@ -17,19 +17,19 @@ Github repo:[hyperlink](https://github.com/FunsizeEvil/MusicVisuals)
 - 	Menu will appear in which the user can select song and its visual
 
 # How it works
-1. 	The menu is fist alled whuch displays a header, 3 option boxes and a footer.
-	each box can be clicked by the user which will launch the a new window with
+1. 	The menu is first alled which displays a header, 3 option boxes and a footer.
+	Each box can be clicked by the user which will launch a new window with
 	a visual for the user. The menu uses processing to display the boxes and
-	mousePressed to detect where the user clicks. it the launches a new window
-	for the option choosen. The menu is also used to load tracks names to an
-	ArrayList for hte user.
+	mousePressed to detect where the user clicks. It the launches a new window
+	for the option choosen. The menu is also used to load track names to an
+	ArrayList for the user.
  2. The AroundTheWorld visual is a model of a solar sytem that reacts to to
 	the amplitude of the music. As the amplitude gets louder the planets
 	rotate quicker and they grow in size. I was inpsired by Daft Punk's 
-	music video and the title of their song to for this visual. It starts
+	music video and the title of their song for this visual. It starts
 	by creating 7 planets for each of the bands with the first one in the 
 	center. It then sets the distance of each planet and its rotation to start
-	at so that they look more naturak rather than in a line. The song is then 
+	at so that they look more natural rather than in a line. The song is then 
 	loaded and the orbits, rotations and size will then change based off the
 	amplitude.
 3. 	CubeInSphere is a visual that creates a pattern of a 12 by 12. The elements
