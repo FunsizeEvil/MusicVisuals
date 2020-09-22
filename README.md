@@ -17,7 +17,7 @@ Github repo:[hyperlink](https://github.com/FunsizeEvil/MusicVisuals)
 - 	Menu will appear in which the user can select song and its visual
 
 # How it works
-1. 	The menu is first alled which displays a header, 3 option boxes and a footer.
+1. 	The menu is first is first seen by the user which displays a header, 3 option boxes and a footer.
 	Each box can be clicked by the user which will launch a new window with
 	a visual for the user. The menu uses processing to display the boxes and
 	mousePressed to detect where the user clicks. It the launches a new window
